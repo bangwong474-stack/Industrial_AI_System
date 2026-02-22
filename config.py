@@ -1,6 +1,6 @@
 # Configuration file for Industrial AI System
 
-BASE_URL="https://meshacksystem.onrender.com"
+BASE_URL="https://ai_production.up.railway.app"
 
 PAYMENT_CALLBACK_URL=f"{BASE_URL}/payment/callback"
 
