@@ -1,6 +1,6 @@
 # Configuration file for Industrial AI System
 
-BASE_URL="https://Industrial_ai_system.up.railway.app"
+BASE_URL="https://Industrial_AI_System.up.railway.app"
 
 PAYMENT_CALLBACK_URL=f"{BASE_URL}/payment/callback"
 
