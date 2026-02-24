@@ -35,6 +35,10 @@ def predict(data:dict,token:str=Depends(verify_token)):
 def home():
     return{"message":"Industrial AI SaaS Running"}
 
+if __name__=="__main__":
+    port=int(os.environ.get("PORT",10000))
+    app.run(host="0.0.0.0",port=port)
+
 @app.post("/predict/production")
 def production(data:dict,request:Request):
     token=request.headers.get("Authorization")
