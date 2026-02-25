@@ -1,6 +1,6 @@
 import pickle
 
-with open("production.pkl","rb")as file:
+with open("backend/production.pkl","rb")as file:
     model=pickle.load(file)
 
 def predict(features):
