@@ -4,7 +4,7 @@ BASE_URL="https://Industrial_AI_System.up.railway.app"
 
 PAYMENT_CALLBACK_URL=f"{BASE_URL}/payment/callback"
 
-FLUTTERWAVE_SECRET_KEY ="Industrial_AI_Flutterwave_Secret_Key_2026"
+FLUTTERWAVE_SECRET_KEY ="supersecretkey"
 API_TOKEN="MY_SUPER_SECURE_API_TOKEN_123"
 
 #PostgreSQL URL
