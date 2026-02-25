@@ -3,7 +3,6 @@ from fastapi.security import HTTPBearer
 from fastapi.responses import JSONResponse
 import uvicorn
 import numpy as np
-from sklearn.linear_model import LinearRegression
 from auth import authenticate
 from ai_machine import predict
 from billing import create_checkout_session
