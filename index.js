@@ -23,4 +23,4 @@ res.send('Login successfully');});
 
 app.listen(PORT,()=>console.log(`Server running on http://localhost:${PORT}`));
 
-app.get('/test',(req,res)=>{res.send('Your server work successfully');});
+app.get("/",(req,res)=>{res.send("Industrial AI system is live")});

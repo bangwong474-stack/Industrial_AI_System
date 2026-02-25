@@ -1,5 +1,9 @@
 from fastapi import FastAPI,Request,Depends,HTTPException
 from fastapi.security import HTTPBearer
+from fastapi.responses import JSONResponse
+import uvicorn
+import numpy as np
+from sklearn.linear_model import LinearRegression
 from auth import authenticate
 from ai_machine import predict
 from billing import create_checkout_session
@@ -22,7 +26,7 @@ API_KEY=os.getenv("API_KEY")
 
 def verify_token(token:str=Depends(security)):
     if token.credentials!=API_KEY:
-        raise HTTPException(status_code=403,detail="Unauthorized")
+        raise HTTPException(status_code=403,tail="Unauthorized")
     
 #======END POINT======
 @app.post("/predict")
@@ -33,11 +37,18 @@ def predict(data:dict,token:str=Depends(verify_token)):
 
 @app.get("/")
 def home():
-    return{"message":"Industrial AI SaaS Running"}
+    return{"message":"Hello World! FastAPI app is live"}
+
+@app.post("/verify_payment")
+def verify_payment(payment_token:str):
+    payment_secret_key=os.environ("PAYMENT_SECRET_KEY")
+    if not payment_secret_key:
+        raise HTTPException(status_code=400,detail="Secret key missing")
+    
 
 if __name__=="__main__":
     port=int(os.environ.get("PORT",10000))
-    app.run(host="0.0.0.0",port=port)
+    app.get(host="0.0.0.0",port=port)
 
 @app.post("/predict/production")
 def production(data:dict,request:Request):
