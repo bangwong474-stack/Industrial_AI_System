@@ -1,7 +1,6 @@
-#import pickle
+import joblib
 
-with open("backend/production.pkl","rb")as file:
-    #model=pickle.load(file)
+model=joblib.load("production.pkl")
 
 #def predict(features):
    # result=model.predict([features])
