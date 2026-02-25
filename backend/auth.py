@@ -1,6 +1,6 @@
 from jose import JWTError,jwt
 from datetime import datetime,timedelta
-from backend.config import FLUTTERWAVE_SECRET_KEY,API_TOKEN
+from config import FLUTTERWAVE_SECRET_KEY,API_TOKEN
 
 ALGORITHM="HS256"
 FLUTTERWAVE_SECRET_KEY="supersecretkey"
