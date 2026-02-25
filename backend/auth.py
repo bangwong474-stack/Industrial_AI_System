@@ -1,4 +1,4 @@
-from jose import jwt
+from jose import JWTError,jwt
 from datetime import datetime,timedelta
 from config import FLUTTERWAVE_SECRET_KEY,API_TOKEN
 
