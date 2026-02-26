@@ -1,6 +1,6 @@
 import joblib
 
-model=joblib.load("production.pkl")
+#model=joblib.load("production.pkl")
 
 #def predict(features):
    # result=model.predict([features])
