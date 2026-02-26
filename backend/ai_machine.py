@@ -2,8 +2,8 @@ import joblib
 
 model=joblib.load("production.pkl")
 
-def predict(input_data):
-   prediction=model.predict([input data])
+def predict(data):
+   prediction=model.predict([data])
    return prediction.tolist()
 
 def machine_failure_rate(features):
