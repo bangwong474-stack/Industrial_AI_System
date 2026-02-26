@@ -1,7 +1,7 @@
 import requests
 import json
 
-from config import FLUTTERWAVE_SECRET_KEY,PAYMENT_CALLBACK_URL
+from backend.config import FLUTTERWAVE_SECRET_KEY,PAYMENT_CALLBACK_URL
 
 BASE_URL="https://api.flutterwave.com/v3"
 headers={"Authorization":f"Bearer{FLUTTERWAVE_SECRET_KEY}","Content-type":"application/json"}
