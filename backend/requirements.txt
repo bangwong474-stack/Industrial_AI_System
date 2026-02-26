@@ -5,3 +5,5 @@ numpy==1.26.4
 python-jose==3.3.0
 joblib
 passlib[bcrypt]
+scikit-learn==1.4.2
+scipy
