@@ -5,7 +5,7 @@ import uvicorn
 import numpy as np
 from sklearn.linear_model import LinearRegression
 from auth import authenticate
-from backend.ai_machine import predict
+from ai_machine import predict
 from billing import create_checkout_session
 import os
 import pickle
