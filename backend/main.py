@@ -8,14 +8,14 @@ from auth import authenticate
 from ai_machine import predict
 from billing import create_checkout_session
 import os
-import pickle
+import joblib
 
 
 app=FastAPI(docs_url=None,redoc_url=None)
 
 #=====LOAD MODEL======
 with open("model.pkl","rb")as file:
-    model=pickle.load(file)
+    model=joblib.load("model.pkl")
 
 print(model)
 

@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import pickle
 import os
+import joblib
 
 #from sklearn.model_selection import train_test_split
 #from sklearn.linear_model import LinearRegression
@@ -25,23 +26,22 @@ y=data.loc[:,'demand']
 #model.fit(X,y)
 
 #=====save model====
-with open("model.pkl","wb")as file:
-    #pickle.dump(model,file)
+joblib.dump(model,"model.pkl")
 
 #print("Data loaded successfully")
 #print(data.head())
 
 
 #if "month" in data.columns:
-    data["month"]=pd.to_datetime(data["month"])
-    data["month_Number"]=data["month"].dt.month
+data["month"]=pd.to_datetime(data["month"])
+data["month_Number"]=data["month"].dt.month
 
 
-    FEATURES=["month_Number"]
-    TARGET="production"
+FEATURES=["month_Number"]
+TARGET="production"
 
-    X=data[FEATURES]
-    y=data[TARGET]
+X=data[FEATURES]
+y=data[TARGET]
 
     #scaler=StandardScaler()
     #X_scaled=scaler.fit_transform(X)
@@ -51,7 +51,7 @@ with open("model.pkl","wb")as file:
    # model=LinearRegression()
     #model.fit(X_train,y_train)
 
-    print("Model trained successfully")
+print("Model trained successfully")
 
 
    # y_pred=model.predict(X_test)
@@ -59,20 +59,20 @@ with open("model.pkl","wb")as file:
     #mae=mean_absolute_error(y_test,y_pred)
     #r2=r2_score(y_test,y_pred)
 
-    print("\n=====MODEL EVALUATION=====")
+print("\n=====MODEL EVALUATION=====")
    # print(f"Mean Absolute Error:{mae:.2f}")
    # print(f"R2 score:{r2:.2f}")
 
 
-    MODEL_PATH="../models/production_model.pkl"
-    SCALER_PATH="../models/production_scaler.pkl"
+MODEL_PATH="../models/production_model.pkl"
+SCALER_PATH="../models/production_scaler.pkl"
 
-    os.makedirs("../models",exist_ok=True)
+os.makedirs("../models",exist_ok=True)
 
     #pickle.dump(model,open(MODEL_PATH,"wb"))
     #pickle.dump(scaler,open(SCALER_PATH,"wb"))
 
-    print("\nModel Saved Successfully")
-    print("Path:",MODEL_PATH)
+print("\nModel Saved Successfully")
+print("Path:",MODEL_PATH)
 
-    print("\nTraining proccess completed successfully")
+print("\nTraining proccess completed successfully")
