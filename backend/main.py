@@ -39,6 +39,10 @@ def predict(data:dict,token:str=Depends(verify_token)):
 def home():
     return{"message":"Hello World! FastAPI app is live"}
 
+@app.get("/about")
+def about():
+    return{"message":"This is my API"}
+
 @app.post("/verify_payment")
 def verify_payment(payment_token:str):
     payment_secret_key=os.environ("PAYMENT_SECRET_KEY")
