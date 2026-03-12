@@ -6,7 +6,7 @@ import numpy as np
 from sklearn.linear_model import LinearRegression
 from auth import authenticate
 from ai_machine import predict
-from billing import create_checkout_session
+from backend.billing import create_checkout_session
 import os
 import joblib
 
