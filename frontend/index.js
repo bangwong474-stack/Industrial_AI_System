@@ -1,6 +1,6 @@
 async function sendMessage(){
 
-const message=document.getElementById("message").Value;
+const message=document.getElementById("message").value;
 
 const response=await
 fetch("https://industrial-ai-system.onrender.com/chat",{
