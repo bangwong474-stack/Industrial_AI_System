@@ -35,8 +35,9 @@ def predict(data:dict,token:str=Depends(verify_token)):
     return{"prediction":result.tolist()}
 
 @app.post("/chat")
-def chat():
-    return{"message":"Hello"}
+async def chat(data:dict):
+    message=data["message"]
+    return{"reply":"You said:"+message}
 
 
 @app.get("/")
