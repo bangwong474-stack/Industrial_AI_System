@@ -34,6 +34,10 @@ def predict(data:dict,token:str=Depends(verify_token)):
     result=model.predict([list(data.values())])
     return{"prediction":result.tolist()}
 
+@app.post("/chat")
+def chat():
+    return{"message":"Hello"}
+
 
 @app.get("/")
 def home():
