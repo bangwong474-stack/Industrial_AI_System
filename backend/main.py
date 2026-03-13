@@ -11,7 +11,7 @@ import os
 import joblib
 
 
-app=FastAPI()
+app=FastAPI(docs_url=None,redoc_url=None)
 
 #=====LOAD MODEL======
 with open("model.pkl","rb")as file:
