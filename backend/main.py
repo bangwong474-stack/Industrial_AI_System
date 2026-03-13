@@ -9,6 +9,7 @@ from ai_machine import predict
 from billing import create_checkout_session
 import os
 import joblib
+from fastapi.middleware.cors import CORSMiddleware
 
 
 app=FastAPI()
@@ -53,6 +54,14 @@ def verify_payment(payment_token:str):
     payment_secret_key=os.environ("PAYMENT_SECRET_KEY")
     if not payment_secret_key:
         raise HTTPException(status_code=400,detail="Secret key missing")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
     
 
 if __name__=="__main__":
