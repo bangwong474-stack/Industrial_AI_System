@@ -3,7 +3,7 @@ async function sendMessage(){
 const message=document.getElementById("message").Value;
 
 const response=await
-fetch("https://Industrial_AI_System.onrender.com/chat",{
+fetch("https://industrial-ai-system.onrender.com/chat",{
 
 method:"POST",
 
