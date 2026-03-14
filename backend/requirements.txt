@@ -10,3 +10,4 @@ joblib==1.5.3
 scipy==1.17.1
 sqlalchemy==2.0.46
 psycopg2-binary==2.9.11
+python-multipart==0.0.22
