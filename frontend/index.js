@@ -20,6 +20,11 @@ password:password
 
 const data=await response.json();
 
-document.getElementById("result").innerText=data.message;
+if(data.message==="Login successfully"){
+
+window.location.href="dashboard.html";
+
+
+}else document.getElementById("result").innerText=data.message;
 
 }
