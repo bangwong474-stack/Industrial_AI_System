@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>AI Assistant</title>
-<meta charset="UTF-8">
+<title>Login system</title>
 </head>
 
 <body>
 
-<h1>My AI Assistant</h1>
+<h2>User login</h2>
 
-<input type="text" id="message" placeholder="Type your message">
-<button onclick="sendMessage()">Send</button>
+<input id="email" placeholder="Enter email"><br><br>
 
-<h3>Reply:</h3>
-<p id="reply"></p>
+<input id="password" type="password" placeholder="Enter password"><br><br>
+
+<button onclick="login()">Login</button>
+
+<p id="result"></p>
 
 <script src="index.js"></script>
 
