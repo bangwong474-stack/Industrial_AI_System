@@ -1,5 +1,5 @@
 from sqlalchemy import column, Integer, String,Float,ForeignKey
-from backend.database import Base
+from database import Base
 
 class Factory(Base):
     __tablename__="factories"
