@@ -20,7 +20,7 @@ password:password
 
 const data=await response.json();
 
-if(data.message==="Login successfully"){
+if(data.message==="login successfully"){
 
     window.location.href="dashboard.html";
 
