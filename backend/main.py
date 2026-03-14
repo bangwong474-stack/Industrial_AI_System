@@ -20,12 +20,11 @@ from models import user
 
 Base.metadata.create_all(bind=engine)
 
-app.include_router(auth.router)
+app=FastAPI()
 
+app.include_router(auth.router)
 app.include_router(payment.router)
 
-
-app=FastAPI()
 
 #=====LOAD MODEL======
 with open("model.pkl","rb")as file:
