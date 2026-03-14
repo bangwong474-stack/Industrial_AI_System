@@ -22,9 +22,8 @@ const data=await response.json();
 
 if(data.message==="Login successfully"){
 
-window.location.href="dashboard.html";
+    window.location.href="dashboard.html";
 
-
-}else document.getElementById("result").innerText=data.message;
+}else{document.getElementById("result").innerText=data.message;}
 
 }
