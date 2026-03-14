@@ -7,6 +7,9 @@ from sklearn.linear_model import LinearRegression
 from auth import authenticate
 from ai_machine import predict
 from billing import create_checkout_session
+from fastapi import UploadFile,File
+from pandas as pd
+import io
 import os
 import joblib
 from fastapi.middleware.cors import CORSMiddleware
@@ -97,6 +100,16 @@ def machine(data:dict,request:Request):
     result=predict(hours,temperature)
     status="FAILURE" if result==1 else "MACHINE OK"
     return{"machine_status":status}
+
+@app.post("/upload-excel")
+async def upload_excel(file:UploadFile=File(...)):
+    contents=await file.read()
+
+    df=pd.read_excel(io.BytesIO(contents))
+
+    summary={"rows":len(df),"columns":list(df.columns)}
+
+    return summary
 
 @app.get("/subscribe/{plan}")
 def subscribe(plan:str):
