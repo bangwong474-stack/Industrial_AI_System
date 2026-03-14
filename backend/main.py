@@ -4,7 +4,7 @@ from fastapi.responses import JSONResponse
 import uvicorn
 import numpy as np
 from sklearn.linear_model import LinearRegression
-from backend.routes.auth import authenticate
+from routes.auth import authenticate
 from ai_machine import predict
 from billing import create_checkout_session
 from fastapi import UploadFile,File
