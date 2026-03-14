@@ -1,6 +1,13 @@
 from jose import JWTError,jwt
 from datetime import datetime,timedelta
 from config import FLUTTERWAVE_SECRET_KEY,API_TOKEN
+from fastapi import APIRouter
+
+router=APIRouter()
+
+@router.post("/login")
+def login():
+    return{"message":"login successfully"}
 
 ALGORITHM="HS256"
 FLUTTERWAVE_SECRET_KEY="supersecretkey"

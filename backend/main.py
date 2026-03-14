@@ -10,6 +10,16 @@ from billing import create_checkout_session
 import os
 import joblib
 from fastapi.middleware.cors import CORSMiddleware
+from backend import auth
+from backend import payment
+from database import Base,engine
+from models import user
+
+Base.metadata.create_all(bind=engine)
+
+app.include_router(auth.router)
+
+app.include_router(payment.router)
 
 
 app=FastAPI()

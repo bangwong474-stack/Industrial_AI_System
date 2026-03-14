@@ -9,10 +9,11 @@ class Factory(Base):
 
 class user(Base):
     __tablename__="users"
-id=column(Integer,primary_key=True,index=True)
-username=column(String,unique=True)
-role=column(String)
-factory_id=column(Integer,ForeignKey("factories.id"))
+
+    id=column(Integer,primary_key=True)
+    email=column(String)
+    password=column(String)
+    subscription=column(String)
 
 class productionData(Base):
     __tablename__="production_Data"
