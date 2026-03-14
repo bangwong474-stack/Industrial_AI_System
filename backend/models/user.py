@@ -1,13 +1,13 @@
-from sqlalchemy import column, Integer, String,Float,ForeignKey
+from sqlalchemy import Column, Integer, String,Float,ForeignKey
 from database import Base
 
 class Factory(Base):
     __tablename__="factories"
-    id=column(Integer,primary_key=True,index=True)
-    name=column(String,unique=True)
-    subscription=column(String)
+    id=Column(Integer,primary_key=True,index=True)
+    name=Column(String,unique=True)
+    subscription=Column(String)
 
-class user(Base):
+class User(Base):
     __tablename__="users"
 
     id=Column(Integer,primary_key=True)
@@ -15,16 +15,16 @@ class user(Base):
     password=Column(String)
     subscription=Column(String)
 
-class productionData(Base):
-    __tablename__="production_Data"
-    id=column(Integer,primary_key=True)
-    factory_id=column(Integer)
-    quantity=column(Float)
+class ProductionData(Base):
+    __tablename__="Production_Data"
+    id=Column(Integer,primary_key=True)
+    factory_id=Column(Integer)
+    quantity=Column(Float)
 
 class MachineData(Base):
     __tablename__="machine_data"
-    id=column(Integer,primary_key=True)
-    factory_id=column(Integer)
-    hours_used=column(Float)
-    temperature=column(Float)
-    failure=column(Integer)
+    id=Column(Integer,primary_key=True)
+    factory_id=Column(Integer)
+    hours_used=Column(Float)
+    temperature=Column(Float)
+    failure=Column(Integer)
