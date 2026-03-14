@@ -1,5 +1,5 @@
 from sqlalchemy import column, Integer, String,Float,ForeignKey
-from database import Base
+from backend.database import Base
 
 class Factory(Base):
     __tablename__="factories"
@@ -10,10 +10,10 @@ class Factory(Base):
 class user(Base):
     __tablename__="users"
 
-    id=column(Integer,primary_key=True)
-    email=column(String)
-    password=column(String)
-    subscription=column(String)
+    id=Column(Integer,primary_key=True)
+    email=Column(String)
+    password=Column(String)
+    subscription=Column(String)
 
 class productionData(Base):
     __tablename__="production_Data"
