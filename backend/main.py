@@ -45,6 +45,8 @@ def verify_token(token:str=Depends(security)):
 @app.post("/predict")
 def predict(data:dict,token:str=Depends(verify_token)):
 
+    current_user=False
+
     if not current_user.is_active:
         return{"message":"please subscribe first"}
     
