@@ -8,7 +8,7 @@ from auth import authenticate
 from ai_machine import predict
 from billing import create_checkout_session
 from fastapi import UploadFile,File
-from pandas as pd
+import pandas as pd
 import io
 import os
 import joblib
