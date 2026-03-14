@@ -1,23 +1,28 @@
-from jose import JWTError,jwt
-from datetime import datetime,timedelta
-from config import FLUTTERWAVE_SECRET_KEY,API_TOKEN
-from fastapi import APIRouter
+from fastapi import APIRouter,HTTPException,Depends
+from pydantic import BaseModel
+from passlib.context import CryptContext
+from models.user import User
+from sqlalchemy.orm import Session
+from database import get_db
 
 router=APIRouter()
 
+pwd_context=CryptContext(schemes=["bcrypt"],deprecated="auto")
+
+class LoginData(BaseModel):
+    email:str
+    password:str
+
+
 @router.post("/login")
-def login():
-    return{"message":"login successfully"}
+def login(data:LoginData,db:Session=Depends(get_db)):
 
-ALGORITHM="HS256"
-FLUTTERWAVE_SECRET_KEY="supersecretkey"
+    user=db.query(User).filter(User.email==data.email).first()
 
-def create_token(data:dict):
-    expire=datetime.utcnow()+timedelta(hours=2)
-    data.update({"exp":expire})
-    return jwt.encode(data,FLUTTERWAVE_SECRET_KEY,algorithm=ALGORITHM)
-
-def authenticate(token):
-    if token==f"Bearer{API_TOKEN}":
-        return True
-    return False
+    if not user:
+        raise HTTPException(status_code=400,detail="Invalid credentials")
+    
+    if not pwd_context.verify(data.password,user.password):
+        raise HTTPException(status_code=400,detail="Invalid credentials")
+    
+    return{"message":"Login successfully"}
