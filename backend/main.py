@@ -89,7 +89,7 @@ if __name__=="__main__":
 @app.post("/predict/production")
 def production(data:dict,request:Request):
     token=request.headers.get("Authorization")
-    if not authenticate(token):
+    if not login(token):
         return{"error":"Unauthorized"},401
     month=data.get("month")
     result=predict(month)
@@ -98,7 +98,7 @@ def production(data:dict,request:Request):
 @app.post("/predict/machine")
 def machine(data:dict,request:Request):
     token=request.headers.get("Authorization")
-    if not authenticate(token):
+    if not login(token):
         return{"error":"Unauthorized"},401
     hours=data.get("hours")
     temperature=data.get("temperature")
