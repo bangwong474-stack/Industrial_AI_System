@@ -13,5 +13,11 @@ class LoginData(BaseModel):
 
 
 @router.post("/login")
-def login(data:LoginData):
-    return{"message":"login endpoint working"}
+def login(data:LoginData,db:Session=Depends(get_db)):
+
+    user=db.query(User).filter(User.email==data.email).first()
+
+    if not user:
+        return{"message":"user not found"}
+    
+    return{"message":"user found"}
